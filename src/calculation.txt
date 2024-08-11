@@ -1,0 +1,92 @@
+$0
+... define constants
+2.71828 -> e
+3.14159 -> pi
+pi * 2 -> tau
+
+$1
+... builtin functions: rand(), len(X), read(), clear(), goto(X), display(X), displayln(X), dac(X), dacln(X),
+... define functions
+abs(X) => X > 0: X; -X
+sign(X) => X > 0: 1; X < 0: -1; 0
+max(A, B) => A > B: A; A <= B: B
+min(A, B) => A < B: A; A >= B: B
+sqrt(X) => X >= 0: X^(1/2); X < 0: -X^(1/2)
+cbrt(X) => X^(1/3)
+root(X, Y) => X >= 0: X^(1/Y); X < 0: -X^(1/Y)
+degtorad(X) => X * (pi / 180)
+sin(X) => degtorad(X) - (degtorad(X)^3 / 3!) + (degtorad(X)^5 / 5!) - (degtorad(X)^7 / 7!)
+cos(X) => 1 - (sin(X)^2)
+tan(X) => sin(X) / cos(X)
+ln(X) => 2 * ((X-1) / (X+1) + (1/3) * ((X-1)/(X+1))^3 + (1/5) * ((X-1)/(X+1))^5 + (1/7) * ((X-1)/(X+1))^7 + (1/9) * ((X-1)/(X+1))^9) 
+log(X) => ln(X) / ln(10)
+lerp(A, B, T) => A + T * (B - A)
+ceil(X) => X % 1 > 0: (X - (X % 1)) + 1; X % 1 < 0: (X - (X % 1)); X
+floor(X) => X % 1 < 0: (X - (X % 1)) - 1; X % 1 > 0: (X - (X % 1)); X
+round(X) => X % 1 >= 0.5: ceil(X); floor(X)
+clamp(X, Y, Z) => X < Y: Y; X > Z: Z; X
+exp(X) => e^X
+
+$2
+... define variables and use functions
+abs(-936) -> A     ... 936
+sign(-5) -> B      ... -1
+max(21, 85) -> C   ... 85
+min(21, 85) -> D   ... 21
+sqrt(16) -> E      ... 4
+cbrt(8) -> F       ... 2
+root(64, 2) -> G   ... 8
+degtorad(tau) -> H ... 6.3704463888888885
+sin(10) -> I       ... 0.17364803248452546
+cos(10) -> J       ... 0.9698463608142532
+tan(10) -> K       ... 0.1790469496000747
+ln(-3) -> L        ... 172.48253968253968
+log(-3) -> M       ... 76.49571383713973
+lerp(0,100,5) -> N ... 500
+ceil(pi) -> O      ... 4
+floor(pi) -> P     ... 3
+round(e) -> Q      ... 3
+clamp(0,5,10) -> R ... 5
+exp(10) -> S       ... 22026.317633684175
+
+$3
+... variable sets
+{A, B, C, D, E, F, G, H, I, J} -> T
+1 -> U             ... index
+len(T) -> V        ... length
+0 -> W             ... sum result
+
+$4
+... loop through set and add sum
+T_U + W -> W       ... add to sum result
+U + 1 -> U         ... increment
+U < V: goto(4)     ... check and loop
+
+$5
+... calculations
+rand() * 100 -> X                  ... random number 
+(-B + sqrt(B^2 - 4(AC)))/2(A) -> Y ... quadratic formula
+sqrt(W) / (XY)^2 - tau -> Z        ... random calculation
+
+$6 
+... display results
+dac(119)     ... 'w'
+dac(32)      ... ' '
+dac(61)      ... '='
+dac(32)      ... ' '
+displayln(W) 
+dac(120)     ... 'x'
+dac(32)      ... ' '
+dac(61)      ... '='
+dac(32)      ... ' '
+displayln(X) 
+dac(121)     ... 'y'
+dac(32)      ... ' '
+dac(61)      ... '='
+dac(32)      ... ' '
+displayln(Y) 
+dac(122)     ... 'z'
+dac(32)      ... ' '
+dac(61)      ... '='
+dac(32)      ... ' '
+displayln(Z) 
