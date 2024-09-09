@@ -47,11 +47,18 @@ I < 10: goto(0)  ... loops 10 times
 
 **Complex Functions**
 ```
+degtorad(X) => X * (pi / 180)
 sin(X) => degtorad(X) - (degtorad(X)^3 / 3!) + (degtorad(X)^5 / 5!) - (degtorad(X)^7 / 7!)
 cos(X) => 1 - (sin(X)^2)
 tan(X) => sin(X) / cos(X)
 ln(X) => 2 * ((X-1) / (X+1) + (1/3) * ((X-1)/(X+1))^3 + (1/5) * ((X-1)/(X+1))^5 + (1/7) * ((X-1)/(X+1))^7 + (1/9) * ((X-1)/(X+1))^9) 
 log(X) => ln(X) / ln(10)
+```
+
+**Sets**
+```
+{ 5, 6, sin(7), X } -> W
+display(W_1) ... displays first index of set W '5'
 ```
 
 **[Example Code](https://github.com/JBrosDevelopment/calc_lang/blob/master/src/calculation.txt)**
